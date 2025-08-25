@@ -1,4 +1,4 @@
-# ⚖️ Sistema Jurídico – Cadastro de Processos Judiciais
+# ⚖️ Sistema Jurídico – Cadastro de Processos Judiciais - Back-end
 
 Pequeno sistema **fullstack** para cadastro e gerenciamento de processos judiciais e seus andamentos, desenvolvido em **React + Node.js + PostgreSQL**, com suporte a execução via **Docker**.
 
@@ -54,41 +54,26 @@ Ou para PostgreSQL (Docker):
 DATABASE_URL="postgresql://postgres:postgres@db:5432/sistema_juridico"
 ```
 
-Também configure o frontend:
-
-```bash
-cp frontend/.env.example frontend/.env
-```
-
-E ajuste conforme necessário:
-
-```env
-VITE_API_URL=http://localhost:3000
-```
-
----
-
 ### 🔹 Rodando com Docker (recomendado)
 
 Na raiz do projeto, execute:
 
 ```bash
-docker compose up --build
+docker compose up backend --build
 ```
 
-Isso irá subir os serviços:
+ou se quiser rebuild forçado:
+
+```bash
+docker compose up --build backend
+```
+
+Isso irá subir os serviço:
 
 - **Backend** → http://localhost:3000  
-- **Frontend** → http://localhost:5173  
 - **PostgreSQL** → localhost:5432  
 
 O backend já aplica automaticamente as migrações do Prisma no banco.
-
-Para popular o banco com dados iniciais (seed):
-
-```bash
-docker compose exec backend npx prisma db seed
-```
 
 ---
 
@@ -104,15 +89,6 @@ npm run dev
 ```
 
 API disponível em: http://localhost:3000
-
-#### Frontend
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
-Frontend disponível em: http://localhost:5173
 
 ---
 
@@ -212,5 +188,4 @@ Caso precise do `psql`:
 
 Agora você pode acessar:
 
-- **Frontend:** http://localhost:5173  
 - **Backend (API):** http://localhost:3000  
