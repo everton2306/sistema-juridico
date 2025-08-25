@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
-
+import { ProcessesPage } from "./pages/ProcessesPage";
+import { ProgressPage } from "./pages/ProgressPage";
 
 export default function App() {
   return (
@@ -30,7 +31,9 @@ export default function App() {
       />
       <Routes>
         {/* ROTAS PUBLICAS */}
-        
+        <Route path="/" element={<ProcessesPage />} />
+        <Route path="/process" element={<ProcessesPage />} />
+        <Route path="/progress/:processId" element={<ProgressPage />} />
       </Routes>
     </div>
   );
